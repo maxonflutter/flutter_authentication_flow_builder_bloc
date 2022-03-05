@@ -6,9 +6,9 @@ import '/repositories/repositories.dart';
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit(this._authRepository) : super(LoginState.initial());
-
   final AuthRepository _authRepository;
+
+  LoginCubit(this._authRepository) : super(LoginState.initial());
 
   void emailChanged(String value) {
     emit(

@@ -6,9 +6,9 @@ import '/repositories/repositories.dart';
 part 'signup_state.dart';
 
 class SignupCubit extends Cubit<SignupState> {
-  SignupCubit(this._authRepository) : super(SignupState.initial());
-
   final AuthRepository _authRepository;
+
+  SignupCubit(this._authRepository) : super(SignupState.initial());
 
   void emailChanged(String value) {
     emit(
@@ -28,7 +28,7 @@ class SignupCubit extends Cubit<SignupState> {
     );
   }
 
-  Future<void> SignupFormSubmitted() async {
+  Future<void> signupFormSubmitted() async {
     if (state.status == SignupStatus.submitting) return;
     emit(state.copyWith(status: SignupStatus.submitting));
     try {

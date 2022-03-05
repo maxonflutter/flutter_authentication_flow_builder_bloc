@@ -57,7 +57,6 @@ class _EmailInput extends StatelessWidget {
       buildWhen: (previous, current) => previous.email != current.email,
       builder: (context, state) {
         return TextField(
-          key: const Key('loginForm_emailInput_textField'),
           onChanged: (email) {
             context.read<LoginCubit>().emailChanged(email);
           },
@@ -75,7 +74,6 @@ class _PasswordInput extends StatelessWidget {
       buildWhen: (previous, current) => previous.password != current.password,
       builder: (context, state) {
         return TextField(
-          key: const Key('loginForm_passwordInput_textField'),
           onChanged: (password) {
             context.read<LoginCubit>().passwordChanged(password);
           },
@@ -96,7 +94,6 @@ class _LoginButton extends StatelessWidget {
         return state.status == LoginStatus.submitting
             ? const CircularProgressIndicator()
             : ElevatedButton(
-                key: const Key('loginForm_continue_raisedButton'),
                 style: ElevatedButton.styleFrom(
                   fixedSize: const Size(200, 40),
                 ),
@@ -114,7 +111,6 @@ class _SignupButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      key: const Key('loginForm_createAccount_flatButton'),
       style: ElevatedButton.styleFrom(
         primary: Colors.white,
         fixedSize: const Size(200, 40),

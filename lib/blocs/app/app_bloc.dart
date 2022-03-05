@@ -11,7 +11,7 @@ part 'app_state.dart';
 
 class AppBloc extends Bloc<AppEvent, AppState> {
   final AuthRepository _authRepository;
-  late final StreamSubscription<User> _userSubscription;
+  StreamSubscription<User>? _userSubscription;
 
   AppBloc({required AuthRepository authRepository})
       : _authRepository = authRepository,
@@ -48,7 +48,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
 
   @override
   Future<void> close() {
-    _userSubscription.cancel();
+    _userSubscription?.cancel();
     return super.close();
   }
 }

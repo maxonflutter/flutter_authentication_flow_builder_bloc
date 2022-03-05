@@ -1,6 +1,5 @@
 part of 'signup_cubit.dart';
 
-enum ConfirmPasswordValidationError { invalid }
 enum SignupStatus { initial, submitting, success, error }
 
 class SignupState extends Equatable {
@@ -22,9 +21,6 @@ class SignupState extends Equatable {
     );
   }
 
-  @override
-  List<Object> get props => [email, password, status];
-
   SignupState copyWith({
     String? email,
     String? password,
@@ -36,4 +32,7 @@ class SignupState extends Equatable {
       status: status ?? this.status,
     );
   }
+
+  @override
+  List<Object> get props => [email, password, status];
 }

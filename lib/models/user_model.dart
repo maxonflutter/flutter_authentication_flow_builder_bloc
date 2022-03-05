@@ -13,7 +13,6 @@ class User extends Equatable {
   final String? name;
   final String? photo;
 
-  /// Empty user which represents an unauthenticated user.
   static const empty = User(id: '');
 
   bool get isEmpty => this == User.empty;
